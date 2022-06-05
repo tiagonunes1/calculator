@@ -1,14 +1,20 @@
-function add(a, b) {}
-
-function sub(a, b) {}
-
-function div(a, b) {}
-
-function mult(a, b) {}
-
-function operate(a,b){
-     
+function add(a, b) {
+  return a + b;
 }
+
+function sub(a, b) {
+  return a - b;
+}
+
+function div(a, b) {
+  return a / b;
+}
+
+function mult(a, b) {
+  return a * b;
+}
+
+function operate(a, b) {}
 
 function AC() {
   const calcInput = document.querySelector(".input");

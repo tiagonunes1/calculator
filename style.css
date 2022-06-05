@@ -46,3 +46,9 @@ button{
     width: 100%;
     padding: 20px;
 }
+
+#number-0 {
+    background-color: pink;
+    /* width: 250px; */
+
+}
