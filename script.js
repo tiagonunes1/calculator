@@ -6,6 +6,10 @@ function div(a, b) {}
 
 function mult(a, b) {}
 
+function operate(a,b){
+     
+}
+
 function AC() {
   const calcInput = document.querySelector(".input");
   calcInput.innerHTML = " ";
@@ -18,7 +22,6 @@ function getValue() {
   let value = this.value;
   console.log(value);
   const calcInput = document.querySelector(".input");
-  if (value == "AC") calcInput.innerHTML = "";
   if (calcInput.innerHTML == 0) calcInput.innerHTML = "";
   calcInput.innerHTML += value;
 }
