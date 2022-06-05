@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:200,300,regular,500,600,700,800,900,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
     <meta charset="UTF-8" />
     <meta htt p-equiv="X-UA-Compatible" content="IE=edge" />
@@ -9,21 +13,52 @@
   </head>
   <body>
     <div class="container">
-      <div class="input">xxxx</div>
+      <div class="input">0</div>
       <div class="grid-container">
-        <div class="grid-item" value="7">7</div>
-        <div class="grid-item" value="8">8</div>
-        <div class="grid-item" value="9">9</div>
-        <div class="grid-item"><b>*</b></div>
-        <div class="grid-item" value="4">4</div>
-        <div class="grid-item" value="5">5</div>
-        <div class="grid-item" value="6">6</div>
-        <div class="grid-item"><b>-</b></div>
-        <div class="grid-item" value="1">1</div>
-        <div class="grid-item" value="2">2</div>
-        <div class="grid-item" value="3">3</div>
-        <div class="grid-item"><b>+</b></div>
+        <div class="grid-item" value=""></div>
+        <div class="grid-item" value=""></div>
+        <div class="grid-item" value=""></div>
+        <div class="grid-item" id="math-operator-div">
+          <button type="button" id="div" class="small_btn">÷</button>
+        </div>
+        <div class="grid-item" value="7">
+          <button value="7" type="button" id="7" class="small_btn">7</button>
+        </div>
+        <div class="grid-item">
+          <button value="8" type="button" id="8" class="small_btn">8</button>
+        </div>
+        <div class="grid-item" value="9">
+          <button value="9" type="button" id="9" class="small_btn">9</button>
+        </div>
+        <div class="grid-item" id="math-operator-mult">
+          <button type="button" id="mult" class="small_btn">*</button>
+        </div>
+        <div class="grid-item" value="4">
+          <button value="4" type="button" id="4" class="small_btn">4</button>
+        </div>
+        <div class="grid-item">
+          <button value="5" type="button" id="5" class="small_btn">5</button>
+        </div>
+        <div class="grid-item">
+          <button value="6" type="button" id="6" class="small_btn">6</button>
+        </div>
+        <div class="grid-item" id="math-operator-sub">
+          <button type="button" id="sub" class="small_btn">-</button>
+        </div>
+        <div class="grid-item">
+          <button value="1" type="button" id="1" class="small_btn">1</button>
+        </div>
+        <div class="grid-item" value="2">
+          <button value="2" type="button" id="2" class="small_btn">2</button>
+        </div>
+        <div class="grid-item">
+          <button value="3" type="button" id="3" class="small_btn">3</button>
+        </div>
+        <div class="grid-item" id="math-operator-sum">
+          <button type="button" id="sum" class="small_btn">+</button>
+        </div>
       </div>
     </div>
+    <script src="script.js"></script>
   </body>
 </html>
