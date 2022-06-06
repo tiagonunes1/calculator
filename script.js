@@ -14,7 +14,9 @@ function mult(a, b) {
   return a * b;
 }
 
-function operate(a, b) {}
+function operate(operator,a, b) {
+
+}
 
 function AC() {
   const calcInput = document.querySelector(".input");
