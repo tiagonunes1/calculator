@@ -14,9 +14,7 @@ function mult(a, b) {
   return a * b;
 }
 
-function operate(operator,a, b) {
-
-}
+function operate(operator, a, b) {}
 
 function AC() {
   const calcInput = document.querySelector(".input");
@@ -28,10 +26,9 @@ function C() {
 }
 function getValue() {
   let value = this.value;
-  console.log(value);
   const calcInput = document.querySelector(".input");
-  if (calcInput.innerHTML == 0) calcInput.innerHTML = "";
-  calcInput.innerHTML += value;
+  if (calcInput.value == 0) calcInput.value = "";
+  calcInput.value += value;
 }
 
 const btn = document.querySelectorAll(".small_btn");

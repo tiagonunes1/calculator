@@ -1,5 +1,5 @@
 * {
-    font-family: "Nunito";
+  font-family: "Nunito";
   /* border: 1px solid red; */
 }
 .container {
@@ -13,6 +13,7 @@
   background-color: #2196f3;
   padding: 10px;
   border-radius: 10px;
+  width: 98%;
 }
 .grid-item {
   background-color: rgba(255, 255, 255, 0.8);
@@ -31,24 +32,24 @@
   color: white;
   border-radius: 5px;
   height: 50px;
+  width: 100%;
 }
 
 [id^="math-operator"] {
   background-color: yellow;
 }
 
-button{
-    font-size:30px;
-    background-repeat: no-repeat;
-    border:none;
-    background-color: transparent;
-    display:block;
-    width: 100%;
-    padding: 20px;
+button {
+  font-size: 30px;
+  background-repeat: no-repeat;
+  border: none;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+  padding: 20px;
 }
 
 #number-0 {
-    background-color: pink;
-    /* width: 250px; */
-
+  background-color: pink;
+  /* width: 250px; */
 }
