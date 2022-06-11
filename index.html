@@ -1,87 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link
-      href="https://fonts.googleapis.com/css?family=Nunito:200,300,regular,500,600,700,800,900,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css" type="text/css" />
     <meta charset="UTF-8" />
-    <meta htt p-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculator</title>
   </head>
   <body>
-    <div class="container">
-      <div class="input-div">
-        <input class="input" type="text" readonly="readonly" placeholder="0" />
+    <div class="calculator">
+      <div class="output">
+        <div class="previous-operand"></div>
+        <div class="next-operand">0</div>
       </div>
-      <div class="grid-container">
-        <div class="grid-item" value="">
-          <button value="AC" type="button" class="btn_ac"><b>AC</b></button>
-        </div>
-        <div class="grid-item" value="">
-          <button value="AC" type="button" class="btn_ac"><b>C</b></button>
-        </div>
-        <div class="grid-item" value=""></div>
-        <div class="grid-item" id="math-operator-div">
-          <button type="button" id="div" class="operator-div" value="/">
-            ÷
-          </button>
-        </div>
-        <div class="grid-item" value="7">
-          <button value="7" type="button" id="7" class="small_btn">7</button>
-        </div>
-        <div class="grid-item">
-          <button value="8" type="button" id="8" class="small_btn">8</button>
-        </div>
-        <div class="grid-item" value="9">
-          <button value="9" type="button" id="9" class="small_btn">9</button>
-        </div>
-        <div class="grid-item" id="math-operator-mult">
-          <button type="button" id="mult" class="operator-mult" value="*">
-            *
-          </button>
-        </div>
-        <div class="grid-item" value="4">
-          <button value="4" type="button" id="4" class="small_btn">4</button>
-        </div>
-        <div class="grid-item">
-          <button value="5" type="button" id="5" class="small_btn">5</button>
-        </div>
-        <div class="grid-item">
-          <button value="6" type="button" id="6" class="small_btn">6</button>
-        </div>
-        <div class="grid-item" id="math-operator-sub">
-          <button type="button" id="sub" class="operator-sub" value="-">
-            -
-          </button>
-        </div>
-        <div class="grid-item">
-          <button value="1" type="button" id="1" class="small_btn">1</button>
-        </div>
-        <div class="grid-item" value="2">
-          <button value="2" type="button" id="2" class="small_btn">2</button>
-        </div>
-        <div class="grid-item">
-          <button value="3" type="button" id="3" class="small_btn">3</button>
-        </div>
-        <div class="grid-item" id="math-operator-sum">
-          <button type="button" id="sum" class="operator-plus" value="+">
-            +
-          </button>
-        </div>
-        <div class="teste">
-          <div class="grid-item">
-            <button value="0" type="button" id="number-0" class="small_btn">
-              0
-            </button>
-          </div>
-        </div>
-        <div class="grid-item" id="math-operator-equals">
-          <button type="button" id="equals" class="small_btn">=</button>
-        </div>
-      </div>
+      <button data-clear class="span-two">CLEAR</button>
+      <button data-number>DEL</button>
+      <button data-operator>÷</button>
+      <button data-number>1</button>
+      <button data-number>2</button>
+      <button data-number>3</button>
+      <button data-operator>*</button>
+      <button data-number>4</button>
+      <button data-number>5</button>
+      <button data-number>6</button>
+      <button data-operator>+</button>
+      <button data-number>7</button>
+      <button data-number>8</button>
+      <button data-number>9</button>
+      <button data-operator>-</button>
+      <button data-number>.</button>
+      <button data-number>0</button>
+      <button data-equals class="span-two">=</button>
     </div>
     <script src="script.js"></script>
   </body>

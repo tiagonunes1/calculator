@@ -1,55 +1,69 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
 * {
-  font-family: "Nunito";
-  /* border: 1px solid red; */
+  font-family: "Montserrat";
+  box-sizing: border-box;
+  font-weight: bold;
 }
-.container {
-  display: block;
-  width: 40%;
-  margin: auto;
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #0093e9;
+  background-image: linear-gradient(to right, #0093e9 0%, #80d0c7 100%);
 }
-.grid-container {
+
+.calculator {
   display: grid;
-  grid-template-columns: auto auto auto auto;
-  background-color: #2196f3;
-  padding: 10px;
-  border-radius: 10px;
-  width: 98%;
-}
-.grid-item {
-  background-color: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  /* padding: 20px; */
-  font-size: 30px;
-  text-align: center;
-  margin: 5%;
-  border-radius: 10px;
-}
-
-.input {
-  text-align: right;
-  font-size: 40px;
-  background-color: grey;
-  color: white;
-  border-radius: 5px;
-  height: 50px;
-  width: 100%;
-}
-
-[id^="math-operator"] {
-  background-color: yellow;
+  justify-content: center;
+  align-content: center;
+  grid-template-columns: repeat(4, 100px);
+  grid-template-rows: minmax(120px, auto) repeat(5, 100px);
 }
 
 button {
-  font-size: 30px;
-  background-repeat: no-repeat;
-  border: none;
-  background-color: transparent;
-  display: block;
-  width: 100%;
-  padding: 20px;
+  background-color: white;
+  color: black;
+  border: 1px solid grey;
+  font-size: 16px;
 }
 
-#number-0 {
-  background-color: pink;
-  /* width: 250px; */
+button:hover {
+  background-color: #e7e7e7;
+}
+
+.output {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 10px;
+  word-wrap: break-word;
+  word-break: break-all;
+  grid-column: 1 / -1;
+  justify-content: space-around;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+/* grid-column: 1 / -1;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  flex-direction: column;
+  padding: 10px;
+  word-wrap: break-word;
+  word-break: break-all;
+
+ */
+
+.output .previous-operand {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 1.5rem;
+}
+
+.output .next-operand {
+  color: white;
+  font-size: 2.5rem;
+}
+
+.span-two {
+  grid-column: span 2;
 }

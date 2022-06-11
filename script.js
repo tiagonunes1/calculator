@@ -1,53 +1,88 @@
+const numberContent = document.querySelectorAll("[data-number]");
+const contentClear = document.querySelector("[data-clear]");
+const operatorContent = document.querySelectorAll("[data-operator]");
+const equalsOperator = document.querySelector("[data-equals]");
+const previousOperand = document.querySelector(".previous-operand");
+const nextOperand = document.querySelector(".next-operand");
+
+let previousNumber = "";
+let currentNumber = "";
+let operatorChar = ""; // where we'll define the operator
+
+contentClear.addEventListener("click", () => {
+  nextOperand.innerHTML = 0;
+  previousOperand.innerHTML = "";
+  previousNumber = "";
+  currentNumber = "";
+});
+
+numberContent.forEach((button) => {
+  button.addEventListener("click", (e) => {
+    numHandler(e.target.textContent);
+  });
+});
+
+operatorContent.forEach((button) => {
+  button.addEventListener("click", (e) => {
+    operatorHandler(e.target.textContent);
+  });
+});
+
+equalsOperator.addEventListener("click", () => {
+  if (Number(previousNumber) != 0 && Number(currentNumber) != 0) {
+    operate(operatorChar, Number(previousNumber), Number(currentNumber));
+  }
+});
+
+function operate(operator, previousNumber, currentNumber) {
+  let result;
+  switch (operator) {
+    case "+":
+      result = add(previousNumber, currentNumber);
+      break;
+    case "-":
+      result = subtract(previousNumber, currentNumber);
+      break;
+    case "÷":
+      result = divide(previousNumber, currentNumber);
+      break;
+    case "*":
+      result = multiply(previousNumber, currentNumber);
+      break;
+  }
+  nextOperand.innerHTML = result;
+  previousOperand.innerHTML = `${previousNumber} ${operator} ${currentNumber}`;
+}
+
 function add(a, b) {
   return a + b;
 }
 
-function sub(a, b) {
+function subtract(a, b) {
   return a - b;
 }
 
-function div(a, b) {
-  return a / b;
+function divide(a, b) {
+  let result = Number(b) == 0 ? `You can't divide by zero, dummie :)` : a / b;
+  console.log(result);
+  return result;
 }
 
-function mult(a, b) {
+function multiply(a, b) {
   return a * b;
 }
 
-function operate(operator, a, b) {}
-
-function AC() {
-  const calcInput = document.querySelector(".input");
-  calcInput.value = " ";
-}
-function C() {
-  const calcInput = document.querySelector(".input");
-  calcInput.value = 0;
-}
-function getValue() {
-  let value = this.value;
-  console.log(value);
-  const calcInput = document.querySelector(".input");
-  if (calcInput.value == 0) calcInput.value = "";
-  calcInput.value += value;
+function numHandler(number) {
+  if (currentNumber.length <= 11) {
+    currentNumber += number;
+    nextOperand.innerHTML = currentNumber;
+  }
 }
 
-const btn = document.querySelectorAll(".small_btn");
-for (i of btn) {
-  i.addEventListener("click", getValue);
-}
-
-const btnAC = document.querySelectorAll(".btn_ac");
-for (i of btnAC) {
-  i.addEventListener("click", AC);
-}
-
-const btnC = document.querySelectorAll(".btn_ac");
-for (i of btnC) {
-  i.addEventListener("click", C);
-}
-
-const btnOperator = document.querySelectorAll('[class*="operator"]');
-for (i of btnOperator) {
-  i.addEventListener("click", getValue);
+function operatorHandler(operator) {
+  previousNumber = currentNumber;
+  operatorChar = operator;
+  previousOperand.innerHTML = previousNumber + operatorChar;
+  currentNumber = "";
+  nextOperand.innerHTML = "";
 }
