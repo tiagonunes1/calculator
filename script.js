@@ -38,37 +38,23 @@ function operate(operator, previousNumber, currentNumber) {
   let result;
   switch (operator) {
     case "+":
-      result = add(previousNumber, currentNumber);
+      result = previousNumber + currentNumber;
       break;
     case "-":
-      result = subtract(previousNumber, currentNumber);
+      result = previousNumber - currentNumber;
       break;
-    case "÷":
-      result = divide(previousNumber, currentNumber);
+    case "/":
+      result =
+        currentNumber == 0
+          ? `You can't divide by zero, dummie :)`
+          : previousNumber / currentNumber;
       break;
     case "*":
-      result = multiply(previousNumber, currentNumber);
+      result = previousNumber * currentNumber;
       break;
   }
   nextOperand.innerHTML = result;
   previousOperand.innerHTML = `${previousNumber} ${operator} ${currentNumber}`;
-}
-
-function add(a, b) {
-  return a + b;
-}
-
-function subtract(a, b) {
-  return a - b;
-}
-
-function divide(a, b) {
-  let result = Number(b) == 0 ? `You can't divide by zero, dummie :)` : a / b;
-  return result;
-}
-
-function multiply(a, b) {
-  return a * b;
 }
 
 function numHandler(number) {
