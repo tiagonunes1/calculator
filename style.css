@@ -40,7 +40,6 @@ button:hover {
   grid-column: 1 / -1;
   justify-content: space-around;
   background-color: rgba(0, 0, 0, 0.75);
-  margin-top: 50%;
 }
 
 .output .previous-operand {
