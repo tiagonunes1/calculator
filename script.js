@@ -64,7 +64,6 @@ function subtract(a, b) {
 
 function divide(a, b) {
   let result = Number(b) == 0 ? `You can't divide by zero, dummie :)` : a / b;
-  console.log(result);
   return result;
 }
 
