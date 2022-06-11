@@ -46,7 +46,7 @@ function operate(operator, previousNumber, currentNumber) {
     case "/":
       result =
         currentNumber == 0
-          ? `You can't divide by zero, dummie :)`
+          ? `You can't divide by zero :)`
           : previousNumber / currentNumber;
       break;
     case "*":
@@ -58,6 +58,12 @@ function operate(operator, previousNumber, currentNumber) {
 }
 
 function numHandler(number) {
+  if (previousNumber !== "" && currentNumber !== "" && operatorChar !== "") {
+    console.log(`total: ${nextOperand.innerHTML}`);
+    console.log('entra');
+    previousNumber = "";
+    nextOperand.innerHTML = currentNumber;
+  }
   if (currentNumber.length <= 11) {
     currentNumber += number;
     nextOperand.innerHTML = currentNumber;
@@ -65,9 +71,22 @@ function numHandler(number) {
 }
 
 function operatorHandler(operator) {
-  previousNumber = currentNumber;
-  operatorChar = operator;
-  previousOperand.innerHTML = previousNumber + operatorChar;
+  if (previousNumber === "") {
+    previousNumber = currentNumber;
+    operatorHandlerCheck(operator);
+  } else if (currentNumber === "") {
+    operatorHandlerCheck(operator);
+  } else {
+    operate(operatorChar, Number(previousNumber), Number(currentNumber));
+    operatorChar = operator;
+    nextOperand.innerHTML = "0";
+    previousOperand.innerHTML = previousNumber + " " + operatorChar;
+  }
+}
+
+function operatorHandlerCheck(value) {
+  operatorChar = value;
+  previousOperand.innerHTML = previousNumber + " " + operatorChar;
+  nextOperand.innerHTML = "0";
   currentNumber = "";
-  nextOperand.innerHTML = "";
 }

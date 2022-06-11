@@ -55,3 +55,7 @@ button:hover {
 .span-two {
   grid-column: span 2;
 }
+
+[data-operator],[data-equals]{
+  background-color: orange;
+}
