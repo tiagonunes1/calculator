@@ -7,7 +7,7 @@ const nextOperand = document.querySelector(".next-operand");
 
 let previousNumber = "";
 let currentNumber = "";
-let operatorChar = ""; // where we'll define the operator
+let operatorChar = ""; 
 
 contentClear.addEventListener("click", () => {
   nextOperand.innerHTML = 0;
