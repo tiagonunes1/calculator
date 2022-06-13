@@ -10,6 +10,8 @@ let previousNumber = "";
 let currentNumber = "";
 let operatorChar = "";
 
+window.addEventListener("keydown", keypressHandler);
+
 dataDelete.addEventListener("click", () => {
   deleteHandler();
 });
@@ -109,5 +111,11 @@ function deleteHandler() {
   if (currentNumber === "" && previousNumber !== "" && operator === "") {
     previousNumber = previousNumber.slice(0, -1);
     nextOperand.innerHTML = previousNumber;
+  }
+}
+
+function keyPressHandler(e) {
+  e.preventdefault();
+  if (e.keycode >= 0 && e.keyCode <= 9) {
   }
 }
