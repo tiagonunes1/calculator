@@ -116,6 +116,22 @@ function deleteHandler() {
 
 function keyPressHandler(e) {
   e.preventdefault();
-  if (e.keycode >= 0 && e.keyCode <= 9) {
+  if (e.key >= 0 && e.key <= 9) {
+    numHandler(e.key);
+  }
+  if (
+    e.key === "Enter" ||
+    (e.key === "=" && currentNum != "" && previousNum != "")
+  ) {
+    compute();
+  }
+  if (e.key === "+" || e.key === "-" || e.key === "/") {
+    operatorHandler(e.key);
+  }
+  if (e.key === "*") {
+    operatorHandler("*");
+  }
+  if (e.key === "Backspace") {
+    deleteHandler();
   }
 }
