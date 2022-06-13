@@ -37,35 +37,41 @@ operatorContent.forEach((button) => {
 
 equalsOperator.addEventListener("click", () => {
   if (Number(previousNumber) != 0 && Number(currentNumber) != 0) {
-    operate(operatorChar, Number(previousNumber), Number(currentNumber));
+    operate();
   }
 });
 
-function operate(operator, previousNumber, currentNumber) {
+function operate() {
+  previousNumber = Number(previousNumber);
+  currentNumber = Number(currentNumber);
+
   let result;
-  switch (operator) {
+  switch (operatorChar) {
     case "+":
-      result = previousNumber + currentNumber;
+      previousNumber += currentNumber;
       break;
     case "-":
-      result = previousNumber - currentNumber;
+      previousNumber -= currentNumber;
       break;
     case "/":
-      result =
-        currentNumber == 0
-          ? `You can't divide by zero :)`
-          : previousNumber / currentNumber;
+      if (currentNumber < 0) {
+        previousNumber = "Error";
+        return;
+      }
+      previousNumber /= currentNumber;
       break;
     case "*":
-      result = previousNumber * currentNumber;
+      previousNumber *= currentNumber;
       break;
   }
   if (result <= 0) {
     previousNumber = "error";
     return;
   }
-  nextOperand.innerHTML = result;
-  previousOperand.innerHTML = `${previousNumber} ${operator} ${currentNumber}`;
+
+  previousNumber = roundNumber(previousNumber);
+  previousNumber = previousNumber.toString();
+  displayResults();
 }
 
 function numHandler(number) {
@@ -86,7 +92,7 @@ function operatorHandler(operator) {
   } else if (currentNumber === "") {
     operatorHandlerCheck(operator);
   } else {
-    operate(operatorChar, Number(previousNumber), Number(currentNumber));
+    operate();
     operatorChar = operator;
     nextOperand.innerHTML = "0";
     previousOperand.innerHTML = previousNumber + " " + operatorChar;
@@ -108,7 +114,7 @@ function deleteHandler() {
       nextOperand.innerHTML = "0";
     }
   }
-  if (currentNumber === "" && previousNumber !== "" && operator === "") {
+  if (currentNumber === "" && previousNumber !== "" && operatorChar === "") {
     previousNumber = previousNumber.slice(0, -1);
     nextOperand.innerHTML = previousNumber;
   }
@@ -123,7 +129,7 @@ function keyPressHandler(e) {
     e.key === "Enter" ||
     (e.key === "=" && currentNum != "" && previousNum != "")
   ) {
-    operate(operatorChar, Number(previousNumber), Number(currentNumber));
+    operate();
   }
   if (e.key === "+" || e.key === "-" || e.key === "/") {
     operatorHandler(e.key);
@@ -134,4 +140,19 @@ function keyPressHandler(e) {
   if (e.key === "Backspace") {
     deleteHandler();
   }
+}
+
+function displayResults() {
+  if (previousNumber.length <= 11) {
+    nextOperand.innerHTML = previousNumber;
+  } else {
+    nextOperand.innerHTML = previousNumber.slice(0, 11) + "...";
+  }
+  previousOperand.innerHTML = "";
+  operatorChar = "";
+  currentNumber == "";
+}
+
+function roundNumber(num) {
+  return Math.round(num * 100000) / 100000;
 }
