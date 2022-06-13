@@ -10,7 +10,7 @@ let previousNumber = "";
 let currentNumber = "";
 let operatorChar = "";
 
-window.addEventListener("keydown", keypressHandler);
+window.addEventListener("keydown", keyPressHandler);
 
 dataDelete.addEventListener("click", () => {
   deleteHandler();
@@ -115,7 +115,7 @@ function deleteHandler() {
 }
 
 function keyPressHandler(e) {
-  e.preventdefault();
+  e.preventDefault();
   if (e.key >= 0 && e.key <= 9) {
     numHandler(e.key);
   }
@@ -123,7 +123,7 @@ function keyPressHandler(e) {
     e.key === "Enter" ||
     (e.key === "=" && currentNum != "" && previousNum != "")
   ) {
-    compute();
+    operate(operatorChar, Number(previousNumber), Number(currentNumber));
   }
   if (e.key === "+" || e.key === "-" || e.key === "/") {
     operatorHandler(e.key);
