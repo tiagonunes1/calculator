@@ -4,10 +4,15 @@ const operatorContent = document.querySelectorAll("[data-operator]");
 const equalsOperator = document.querySelector("[data-equals]");
 const previousOperand = document.querySelector(".previous-operand");
 const nextOperand = document.querySelector(".next-operand");
+const dataDelete = document.querySelector("[data-delete]");
 
 let previousNumber = "";
 let currentNumber = "";
-let operatorChar = ""; 
+let operatorChar = "";
+
+dataDelete.addEventListener("click", () => {
+  deleteHandler();
+});
 
 contentClear.addEventListener("click", () => {
   nextOperand.innerHTML = 0;
@@ -53,14 +58,16 @@ function operate(operator, previousNumber, currentNumber) {
       result = previousNumber * currentNumber;
       break;
   }
+  if (result <= 0) {
+    previousNumber = "error";
+    return;
+  }
   nextOperand.innerHTML = result;
   previousOperand.innerHTML = `${previousNumber} ${operator} ${currentNumber}`;
 }
 
 function numHandler(number) {
   if (previousNumber !== "" && currentNumber !== "" && operatorChar !== "") {
-    console.log(`total: ${nextOperand.innerHTML}`);
-    console.log('entra');
     previousNumber = "";
     nextOperand.innerHTML = currentNumber;
   }
@@ -89,4 +96,18 @@ function operatorHandlerCheck(value) {
   previousOperand.innerHTML = previousNumber + " " + operatorChar;
   nextOperand.innerHTML = "0";
   currentNumber = "";
+}
+
+function deleteHandler() {
+  if (currentNumber !== "") {
+    currentNumber = currentNumber.slice(0, -1);
+    nextOperand.innerHTML = currentNumber;
+    if (currentNumber === "") {
+      nextOperand.innerHTML = "0";
+    }
+  }
+  if (currentNumber === "" && previousNumber !== "" && operator === "") {
+    previousNumber = previousNumber.slice(0, -1);
+    nextOperand.innerHTML = previousNumber;
+  }
 }
