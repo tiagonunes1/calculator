@@ -45,7 +45,6 @@ function operate() {
   previousNumber = Number(previousNumber);
   currentNumber = Number(currentNumber);
 
-  let result;
   switch (operatorChar) {
     case "+":
       previousNumber += currentNumber;
@@ -54,17 +53,13 @@ function operate() {
       previousNumber -= currentNumber;
       break;
     case "/":
-      if (currentNumber < 0) {
-        previousNumber = "Error";
-        return;
-      }
       previousNumber /= currentNumber;
       break;
     case "*":
       previousNumber *= currentNumber;
       break;
   }
-  if (result <= 0) {
+  if (currentNumber <= 0) {
     previousNumber = "error";
     return;
   }
@@ -153,6 +148,6 @@ function displayResults() {
   currentNumber == "";
 }
 
-function roundNumber(num) {
-  return Math.round(num * 100000) / 100000;
+function roundNumber(number) {
+  return Math.round(number * 100000) / 100000;
 }
